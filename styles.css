@@ -4,9 +4,9 @@
 
 :root {
     --main-bg: white;
-    --sec-bg: rgb(79, 28, 81);
+    --sec-bg: ;
     --color-1: black;
-    --color-2: rgb(220, 160, 109);
+    --color-2: rgb(159, 179, 223);
     --title-font: "DM Serif Text", serif;
     --para-font: "Roboto Flex", sans-serif;
    
@@ -18,8 +18,19 @@ body {
     font-family: var(--para-font);
 }
 
-svg {
-    width: 20px;
+
+.header-icons > a > svg {
+    width: 40px;
+    transition: transform .5s ease-in-out;
+}
+
+.header-icons > a > svg:hover {
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+.footer-contact > svg {
+    width: 40px;
 }
 
 h2, h3 {
@@ -67,8 +78,9 @@ header {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 40px 1fr 1fr;
+    justify-items: center;
     row-gap: 30px;
-    column-gap: 50px;
+    column-gap: 30px;
     align-items: center;
     padding: 200px 20px 200px 20px;
 }
@@ -77,9 +89,8 @@ header {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
-    width: auto;
+    width: 80%;
     height: auto;
     gap: 10px;
     padding-bottom: 50px;
@@ -94,6 +105,7 @@ header {
 .text-work {
     grid-area: 1 / 1 / 1 / 4;
     place-self: start;
+    margin-left: 50px;
 }
 
 .project-content {
@@ -113,6 +125,11 @@ header {
 
 .project-name > div > a > svg {
     width: 30px;
+    transition: filter 0.5 ease-in-out;
+}
+
+.project-name > div > a > svg:hover {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(26%) saturate(3110%) hue-rotate(165deg) brightness(95%) contrast(88%);
 }
 
 .project-para {
@@ -153,10 +170,16 @@ footer {
     font-size: 2rem;
 }
 
-.footer-links > a > svg {
+.footer-links > a svg {
     width: 50px;
     padding-top: 20px;
+    transition: filter 1s;
 }
+
+.footer-links > a svg:hover {
+    filter: brightness(0) saturate(100%) invert(96%) sepia(1%) saturate(2419%) hue-rotate(334deg) brightness(90%) contrast(136%);
+}
+
 footer > * p {
     font-size: .8rem;
     width: 60%;
@@ -169,13 +192,6 @@ footer > * p {
 
 @media screen and (max-width: 768px) {
 
-    body {
-        margin: 0;
-        border: 0;
-        grid-template-rows: auto;
-        width: 100vw;
-    }
-
     .projects {
         display: flex;
         flex-direction: column;
@@ -183,7 +199,7 @@ footer > * p {
     }
 
     .project-card {
-        width: 80%;
+        width: 70%;
     }
 
     .projects h2 {
@@ -192,6 +208,7 @@ footer > * p {
 
     .text-work {
         align-self: center;
+        margin-left: 0;
     }
 
     footer {
@@ -199,23 +216,16 @@ footer > * p {
         align-items: center;
     }
 
-    .footer-text > p {
-        text-align: center;
-        width: 100%;
-    }
-
     .footer-text {
         text-align: center;
-        margin-left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     header > div {
         text-align: center;
         flex-direction: column;
-    }
-
-    header {
-        width: 100%;
     }
 
     img.header-img {
@@ -230,13 +240,23 @@ footer > * p {
         font-size: 1rem;
     }
 
-    .footer-contact {
-        justify-content: center;
+    .footer-img {
+        order: -1;
+        max-width: 50%;
+        gap: 2px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .project-card {
+        width: 100%;
+    }
+
+    .footer h2 {
+        font-size: .8rem;
     }
 
     .footer-img {
-        order: -1;
-        max-width: 80%;
-        gap: 2px;
+        max-width: 100%;
     }
 }
